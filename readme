@@ -1,0 +1,91 @@
+********************************************
+      Project PDS 2007  - Messanger
+   Author : Dimitar Jordanov - xjorda01
+********************************************   
+
+********************************************
+           Short description
+********************************************
+
+Used library : Libnet
+
+The server:
+     - three threads  
+     - IPC Message queue
+     - Signals handling
+     - Command line 
+       ? - help
+       Enter - quit
+       print - Prints the list of the users
+
+The client:
+     - two threads
+     - Signal handling      
+
+test program:
+  The test program starts one server and two clients.
+  As input is used the following file set:
+   server.conf
+   client_1.conf
+   client_2.conf
+  The output for the clients is redirected to the following output files.
+   client_1.out
+   client_2.out
+  The output from the server is sent to stdout.
+
+How to compile:
+  make 
+ The Makefile will compile the program under Linux and FreeBSD.
+
+How to start :
+
+./messserver -tcp 1234 -udp 555
+./messclient -tcp 1234 -udp 444
+./test
+
+********************************************
+     What is done more than expected
+********************************************
+   Commands in the server
+   Signal handling
+   Message queue
+  
+********************************************
+               Known problems   
+********************************************
+ The client runs correctly only under Linux. 
+ Opening a channel under BSD generates an error.
+
+ There is a problem with the output from the test program.
+ 
+ Both the server and the client do not check for correct input. 
+
+********************************************
+                File List
+********************************************
+Messanger:
+
+messclient.c
+messserver.c
+Makefile
+common.h
+
+Libraries:
+
+libnet.h
+libnet_BSD.a
+libnet_Linux.a
+
+
+Test program and output files :
+
+test.c
+server.conf
+client_1.conf
+client_2.conf
+client_1.out
+client_2.out
+
+Documentation:
+readme
+manual.pdf
